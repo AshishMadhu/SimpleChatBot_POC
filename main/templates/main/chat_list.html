@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+
+  <div class="create-button-container">
+    <a class="btn btn-outline-primary" href="{# url 'main:createChat' #}"
+      ><span>+</span> Create Chat</a
+    >
+  </div>
+{% for obj in object_list %}
+<ul class="list-group">
+  <li class="list-group-item">
+    <div>{{ obj.title }}</div>
+  </li>
+</ul>
+{% endfor %} {% endblock content %}

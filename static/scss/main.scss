@@ -1,0 +1,44 @@
+@import '_createbutton';
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+nav {
+    position: absolute;
+    width: 100%;
+    height: 9vh;
+    background: rgb(38, 132, 145);
+    color: white;
+    top:0;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+    box-shadow: 3px 5px 5px rgb(50, 171, 187);
+}
+
+nav div {
+    font-size: x-large;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 2vh;
+}
+
+nav div:nth-child(2) {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    text-decoration: none;
+    color: blue;
+}
+
+.mt-100 {
+    margin-top: 100px,
+}
+

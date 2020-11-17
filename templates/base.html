@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatbotPoc</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="brand">ChatBot POC</div>
+        <div class="user">
+            {% if user %}
+            <a href="{# url 'main:login' #}">Login</a>
+            {% else %}
+            <span>{{ user.name }}</span>
+            {% endif %}
+        </div>
+    </nav>
+    <div class="container mt-100">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+    <script src="{% static 'jquery/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% block script %}
+    {% endblock script %}
+</body>
+</html>

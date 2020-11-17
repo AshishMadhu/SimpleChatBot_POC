@@ -30,7 +30,22 @@ class MessageFactory(factory.django.DjangoModelFactory):
             return
         if extracted:
             for choice in extracted:
-                self.choices.add(choice)
+                if choice.chat == self.chat:
+                    self.choices.add(choice)
     
     class Meta:
         model = Message
+
+class ResponseFactory(factory.django.DjangoModelFactory):
+    chat = factory.SubFactory(ChatFactory)
+
+    @factory.lazy_attribute
+    def message(self):
+        return MessageFactory(chat = self.chat)
+    
+    @factory.lazy_attribute
+    def choice(self):
+        return ChoiceFactory(chat = self.chat)
+
+    class Meta:
+        model = Response

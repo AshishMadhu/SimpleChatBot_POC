@@ -1,0 +1,19 @@
+{% load render_bundle from webpack_loader %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/chatApp.css' %}">
+</head>
+<body>
+<div id="root"> </div>
+</div>
+</body>
+
+{% render_bundle "ChatApp" "js" %}
+<script src="{% static 'js/axios.min.js' %}"></script>
+</html>
+

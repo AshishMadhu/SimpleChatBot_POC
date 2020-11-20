@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load render_bundle from webpack_loader %}
+{% load static %}
+{% block content %}
+<div id="root">
+
+</div>
+{% endblock content %}
+
+{% block script %}
+
+{% render_bundle "App" "js" %}
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+		ReactDOM.render(React.createElement(App, {
+			images: images,
+			imageStart: images[0],
+		}), $("root")[0])
+	})
+</script>
+<!-- <script src="{% static 'js/axios.min.js' %}"></script> -->
+{% endblock script %}
+<script src="App.bundle.js"></script>

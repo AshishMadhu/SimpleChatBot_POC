@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="app-container">
+    <div class="create-message-button-container">
+        <a href="{% url 'main:create' %}">
+            <img src="{% static 'icons/box.svg' %}" alt="pic" />
+            <h4>Create</h4>
+        </a>
+    </div>
+    <div class="update-message-button-container">
+        <a href="{% url 'main:list' %}">
+        <img src="{% static 'icons/list.svg' %}" alt="pic" />
+        <h4>View & Edit</h4>
+    </a>
+    </div>
+</div>
+{% endblock content %}

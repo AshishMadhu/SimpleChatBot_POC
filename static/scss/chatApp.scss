@@ -1,0 +1,103 @@
+body {
+    margin: 2px;
+}
+.chatapp-container {
+    border: 1px solid greenyellow;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.chatapp-header {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    background-color: #35CCE6;
+    color: white;
+    font-family: system-ui;
+    font-size: 4vw;
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.chatapp-messages-container {
+    margin-top: 100px;
+}
+.chatapp-messages {
+    padding: 19px;
+}
+
+.chatapp-response-container {
+    position: relative;
+}
+
+.chatapp-response {
+    background-color: cadetblue;
+    padding: 10px;
+    border-radius: 0px 10px;
+}
+
+.chatapp-response::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid cadetblue;
+    border-top: 10px solid cadetblue;
+    border-bottom: 10px solid transparent;
+    left: -19px;
+    top: 0px;
+}
+
+.chatapp-response-text {
+    color: white;
+    font-family: sans-serif;
+}
+
+.chatapp-response-text p {
+    font-size: x-large;
+    font-weight: bold;    
+}
+
+.chatapp-response-choices {
+    
+    display: inline-flex;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.chatapp-response-choice {
+    background-color: antiquewhite;
+    color: black;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 3px darkslategrey;
+    cursor: pointer;
+}
+
+.chatapp-user-message {
+    background-color: rgb(58, 145, 97);
+    padding: 10px;
+    border-radius: 10px 0px;
+    margin-bottom: 17px;
+    text-align: right;
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+    font-family: sans-serif;
+}
+
+.chatapp-user-message::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid rgb(58, 145, 97);
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgb(58, 145, 97);
+    border-bottom: 10px solid transparent;
+    right: -19px;
+    top: 0px;
+}

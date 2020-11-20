@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
 <div class="create-button-container">
     <a
@@ -12,14 +14,15 @@
 <ul class="list-group">
     <li class="list-group-item">
         <a href="{% url 'main:edit-chatbot' pk=obj.pk %}"
-            ><div>
-                {{ obj.title }}
-                <div class="copy-code">
-                  <div id="prefix"></div>/chatBot/{{obj.id}}
-                </div></div
-        ></a>
+            ><div class="chat-title">{{ obj.title }}</div></a
+        >
+        <input style="width: 85%;" id="foo" value="http://localhost:8000/chatbot/{{obj.id}}/" />
+        <p class="help-text">Copy the url </p>
     </li>
 </ul>
 {% empty %}
 <h3>You don't have created any chats</h3>
 {% endfor %} {% endblock content %}
+{% block script %}
+<script src="{% static 'js/clipboard.min.js' %}"></script>
+{% endblock script %}

@@ -119,6 +119,12 @@ nav a:hover {
   text-align: center;
 }
 
+.chatbot-title {
+  font-size: x-large;
+  text-align: center;
+  font-weight: bold;
+}
+
 .chat-title {
   font-size: large;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

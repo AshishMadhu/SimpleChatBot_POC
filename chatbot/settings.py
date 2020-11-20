@@ -138,7 +138,7 @@ REST_FRAMEWORK = {
 }
 
 LOGIN_URL = 'user:login'
-LOGIN_REDIRECT_URL = 'main:list'
+LOGIN_REDIRECT_URL = 'main:home'
 LOGOUT_REDIRECT_URL = 'user:login'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

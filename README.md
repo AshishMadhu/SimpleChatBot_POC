@@ -6,7 +6,7 @@
 - React 
 - Redis
 
-## Things you can do (initial)
+## Things you can do (initially)
 
 - Create Message, add choices to mesage, then add response.
 - Load it in iframe that's enough simple chatbot is ready

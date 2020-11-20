@@ -1,15 +1,24 @@
 {% extends 'base.html' %} {% block content %}
 
-  <div class="create-button-container">
-    <a class="btn btn-outline-primary" style = "font-weight: bold;" href="{% url 'main:create' %}"
-      ><span>+</span> Create Chat</a
+<div class="create-button-container">
+    <a
+        class="btn btn-outline-primary"
+        style="font-weight: bold"
+        href="{% url 'main:create' %}"
+        ><span>+</span> Create Chat</a
     >
-  </div>
+</div>
 {% for obj in object_list %}
 <ul class="list-group">
-  <li class="list-group-item">
-    <a href="{% url 'main:edit-chatbot' pk=obj.pk %}"><div>{{ obj.title }}</div></a>
-  </li>
+    <li class="list-group-item">
+        <a href="{% url 'main:edit-chatbot' pk=obj.pk %}"
+            ><div>
+                {{ obj.title }}
+                <div class="copy-code">
+                  <div id="prefix"></div>/chatBot/{{obj.id}}
+                </div></div
+        ></a>
+    </li>
 </ul>
 {% empty %}
 <h3>You don't have created any chats</h3>

@@ -19,5 +19,5 @@ urlpatterns = [
     path('list/', MessageListView.as_view(), name = 'list'),
     path('create/', ChatCreateView.as_view(), name = 'create'),
     path('<uuid:pk>/edit', DisplayAppView.as_view(), name = 'edit-chatbot'),
-    path('chatBot/<uuid:pk>/', TemplateView.as_view(template_name = "frontend/chat_app.html"), name = "chat-app"),
+    path('chatbot/<uuid:pk>/', TemplateView.as_view(template_name = "frontend/chat_app.html"), name = "chat-app"),
 ]

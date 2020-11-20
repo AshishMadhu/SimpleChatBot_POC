@@ -16,7 +16,7 @@ class ChatCreateView(LoginRequiredMixin, CreateView):
         instance = form.save()
         return HttpResponseRedirect(reverse_lazy('main:edit-chatbot', kwargs = {'pk': instance.id}))
 
-class MessageListView(ListView):
+class MessageListView(LoginRequiredMixin, ListView):
     template_name = 'main/listView.html'
     queryset = Chat.objects.all() 
 

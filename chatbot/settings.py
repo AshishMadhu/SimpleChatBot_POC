@@ -147,6 +147,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 WEBPACK_LOADER = {
     "DEFAULT": {
         "BUNDLE_DIR_NAME": "bundle/",
-        "STATS_FILE": os.path.join(BASE_DIR, "./frontend/testdev/webpack-stats.json"),
+        "STATS_FILE": os.path.join(BASE_DIR, "./frontend/react/webpack-stats.json"),
     }
 }

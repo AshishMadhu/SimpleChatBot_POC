@@ -4,7 +4,6 @@ import { host, urlPrefix } from "../configs/globals";
 import ReconnectingWebSocket from "reconnecting-websocket";
 import { Messages, Message, ResponseData } from "../types/main";
 
-import "react-chat-widget/lib/styles.css";
 import ChatApp from "./ChatApp";
 
 type State = {

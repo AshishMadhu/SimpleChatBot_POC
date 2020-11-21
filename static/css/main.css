@@ -241,4 +241,14 @@ nav a:hover {
   max-width: 150px;
   margin-bottom: 20px;
 }
+
+.copy-code {
+  margin: 18px;
+  border-radius: 5px;
+  padding: 12px;
+  border: 1px solid gray;
+  background-color: gainsboro;
+  font-family: monospace;
+  font-size: small;
+}
 /*# sourceMappingURL=main.css.map */

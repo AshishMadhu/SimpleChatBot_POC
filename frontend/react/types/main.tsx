@@ -1,5 +1,4 @@
 export type Choice = {
-    chat: string;
     text: string;
     id: number
 };
@@ -11,7 +10,7 @@ export type Message = {
 };
 
 export type ResponseData = {
-    chat: string;
+    chat?: string;
     choices?: Array<Choice>;
     message?: number;
     choice?: number;

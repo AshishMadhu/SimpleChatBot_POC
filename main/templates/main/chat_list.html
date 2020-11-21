@@ -1,6 +1,23 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<script>
+    function copy(element, id) {
+        var range = document.createRange();
+        range.selectNode(element);
+        window.getSelection().removeAllRanges(); // clear current selection
+        window.getSelection().addRange(range); // to select text
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges(); // to deselect
+
+        $("p").each((i, e) => {
+            if (e.id == id) {
+                e.innerText = "Copied";
+            } else {
+                e.innerText = "Click to copy";
+            }
+        });
+    }
+</script>
 
 <div class="create-button-container">
     <a
@@ -16,13 +33,14 @@
         <a href="{% url 'main:edit-chatbot' pk=obj.pk %}"
             ><div class="chat-title">{{ obj.title }}</div></a
         >
-        <input style="width: 85%;" id="foo" value="http://localhost:8000/chatbot/{{obj.id}}/" />
-        <p class="help-text">Copy the url </p>
+        <div class="copy-code" onclick="copy(this, '{{obj.id}}')">
+            {{ obj.get_url }}
+        </div>
+        <p id="{{obj.id}}" class="help-text">Click to copy</p>
     </li>
 </ul>
 {% empty %}
 <h3>You don't have created any chats</h3>
-{% endfor %} {% endblock content %}
-{% block script %}
+{% endfor %} {% endblock content %} {% block script %}
 <script src="{% static 'js/clipboard.min.js' %}"></script>
 {% endblock script %}

@@ -887,13 +887,14 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*****************************/
 /*! namespace exports */
 /*! export host [provided] [no usage info] [missing usage info prevents renaming] */
+/*! export hostName [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export urlPrefix [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"urlPrefix\": () => /* binding */ urlPrefix,\n/* harmony export */   \"host\": () => /* binding */ host\n/* harmony export */ });\nvar urlPrefix = \"http://\";\r\nvar host = \"localhost:8000/api\";\r\n\n\n//# sourceURL=webpack:///./configs/globals.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"urlPrefix\": () => /* binding */ urlPrefix,\n/* harmony export */   \"host\": () => /* binding */ host,\n/* harmony export */   \"hostName\": () => /* binding */ hostName\n/* harmony export */ });\nvar urlPrefix = \"http://\";\r\nvar host = \"localhost:8000/api\";\r\nvar hostName = \"localhost:8000\";\r\n\n\n//# sourceURL=webpack:///./configs/globals.tsx?");
 
 /***/ }),
 

@@ -1,10 +1,14 @@
 import React, { Component } from "react";
-import axios from "../configs/axiosConfig";
-import { host, urlPrefix } from "../configs/globals";
 import ReconnectingWebSocket from "reconnecting-websocket";
 import { Messages, Message, ResponseData } from "../types/main";
-
+import { hostName } from "../configs/globals";
 import ChatApp from "./ChatApp";
+
+declare global {
+    interface Window {
+        chat_id: string;
+    }
+}
 
 type State = {
     chat_title: string;
@@ -18,9 +22,9 @@ class App extends Component<any, State> {
 
     constructor(props: any) {
         super(props);
-        this.chat_id = window.location.pathname.split("/")[2];
+        this.chat_id = window.chat_id;
         this.rws = new ReconnectingWebSocket(
-            "ws://" + window.location.host + "/ws/chat/" + this.chat_id + "/"
+            "ws://" + hostName + "/ws/chat/" + this.chat_id + "/"
         );
         this.state = {
             chat_title: null,
@@ -29,57 +33,40 @@ class App extends Component<any, State> {
         };
     }
 
-    onChoiceClickHandler(id:number) {
-        axios.get(`${urlPrefix}${host}/${this.chat_id}/responses/choice/?choice_id=${id}`).then((res) => {
-            if(res.status === 200) {
-                const user_text = res.data.choice_text;
-                const response: ResponseData = {
-                    chat: res.data.chat,
-                    message: res.data.message,
-                    message_details: res.data.message_details
-                }
-                const newMessages = [...this.state.messages]
-                newMessages.push({user_text, response})
-                this.setState({
-                    messages: newMessages
-                })
-            }
-        })
+    onChoiceClickHandler(id: number) {
+        this.rws.send(JSON.stringify({'type': 'choice_click', 'choice_id': id}))
     }
 
     componentDidMount() {
         this.rws.onmessage = (e) => {
             const data = JSON.parse(e.data);
+            console.log(data);
             if (data["type"] === "chat_join") {
-                axios
-                    .get(
-                        `${urlPrefix}${host}/${this.chat_id}/messages/${data.message_id}/`
-                    )
-                    .then((res) => {
-                        if (res.status === 200) {
-                            const user_text: string = null;
-                            const response: ResponseData = {
-                                chat: res.data.chat,
-                                choices: res.data.choices,
-                                text: res.data.text,
-                            };
-                            const newMessages = this.state.messages;
-                            newMessages.push({ user_text, response });
-                            this.setState({
-                                messages: newMessages,
-                            });
-                        }
-                    });
+                const user_text: string = null;
+                const response: ResponseData = {
+                    choices: data.message_details.message.choices,
+                    text: data.message_details.message.text,
+                }
+                const new_message = [...this.state.messages];
+                new_message.push({user_text, response})
+                this.setState({
+                    messages: new_message,
+                    chat_title: data.message_details.title
+                })
+            }
+            if (data["type"] == "choice_click") {
+                const user_text = data.response.choice_text
+                const response: ResponseData = {
+                    message: data.response.message,
+                    message_details: data.response.message_details
+                }
+                const new_messages = [...this.state.messages];
+                new_messages.push({user_text, response});
+                this.setState({
+                    messages: new_messages,
+                })
             }
         };
-
-        axios.get(`${urlPrefix}${host}/chats/${this.chat_id}/`).then((res) => {
-            if (res.status === 200) {
-                this.setState({
-                    chat_title: res.data.title,
-                });
-            }
-        });
     }
 
     render() {
@@ -88,7 +75,9 @@ class App extends Component<any, State> {
                 <ChatApp
                     title={this.state.chat_title}
                     messages={this.state.messages}
-                    onChoiceClickHandler = {(id: number) => this.onChoiceClickHandler(id)}
+                    onChoiceClickHandler={(id: number) =>
+                        this.onChoiceClickHandler(id)
+                    }
                 />
             </div>
         );

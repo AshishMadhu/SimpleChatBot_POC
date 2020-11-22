@@ -5,17 +5,15 @@ verify_ssl = true
 
 [dev-packages]
 django-webpack-loader = "*"
-v = {editable = true,version = "*"}
+ipython = "*"
+factory-boy = "*"
 
 [packages]
 django = "*"
 channels = "*"
 channels-redis = "*"
-ipython = "*"
-djangorestframework = "*"
-factory-boy = "*"
 django-crispy-forms = "*"
-django-cors-headers = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"

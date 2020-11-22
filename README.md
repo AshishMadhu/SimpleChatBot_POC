@@ -1,7 +1,9 @@
 # Simple chatbot POC (proof of concept)
 
+
 ## Technologies used 
 - Django
+- DjangoRestFramework
 - Django channels
 - React 
 - Redis

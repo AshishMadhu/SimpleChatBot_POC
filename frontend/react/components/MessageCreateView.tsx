@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import axios from "../configs/axiosConfig";
-import { urlPrefix, host } from "../configs/globals";
 import ChoiceTags from "./subComponents/ChoiceTags";
 import MessageForm from "./subComponents/MessageForm";
-import SelectChoiceView from "./subComponents/SelectChoiceView";
 
 type Props = {};
 
